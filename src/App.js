@@ -9,11 +9,11 @@ function RegularComponent() {
   return <h1>This is component can be seen for everyone.</h1>
 }
 
-function App(props) {
+function App({ authorized }) {
 
   return (
     <>
-      {props.authorized ? <HiddenComponent /> : <RegularComponent />}
+      {authorized ? <HiddenComponent /> : <RegularComponent />}
     </>
   )
 }
