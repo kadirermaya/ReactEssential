@@ -1,56 +1,21 @@
 import React from 'react';
-import picture from './picture.JPG'
+import "./App.css"
 
-function Header(props) {
-  return (
-    <header>
-      <h1>{props.name} {props.lastName} Photography.</h1>
-    </header>
-  );
+function HiddenComponent() {
+  return <h1>This is hidden component.</h1>
 }
 
-function Main(props) {
-  return (
-    <section>
-      <p>Get your {props.adjective} pictures with me.</p>
-      <img src={picture} height={500} alt="An amazing view in Boardman-Poland Road" />
-      <ul style={{ textAlign: "left" }}>
-        {photoObjects.map(({ title, id }) =>
-          <li key={id}>{title}</li>
-        )}
-      </ul>
-    </section >
-  );
-
+function RegularComponent() {
+  return <h1>This is component can be seen for everyone.</h1>
 }
 
-function Footer(props) {
-  return (
-    <footer>
-      <p>Copyright {props.year}</p>
-    </footer>
-  );
-}
+function App(props) {
 
-const photos = [
-  "Wedding",
-  "Portrait",
-  "Event",
-  "Graduation"
-];
-
-const photoObjects = photos.map((photo, id) => ({ id: id, title: photo }))
-
-function App() {
   return (
     <>
-      <Header name="Kadir" lastName="Ermaya" />
-      <Main adjective="amazing" photo={photoObjects} />
-      <Footer year={new Date().getFullYear()} />
+      {props.authorized ? <HiddenComponent /> : <RegularComponent />}
     </>
-  );
+  )
 }
-
-
 
 export default App;
