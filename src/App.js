@@ -14,7 +14,12 @@ function Main(props) {
   return (
     <section>
       <p>Get your {props.adjective} pictures with me.</p>
-    </section>
+      <ul style={{ textAlign: "left" }}>
+        {photos.map((photo) =>
+          <li>{photo}</li>
+        )}
+      </ul>
+    </section >
   );
 
 }
@@ -28,11 +33,19 @@ function Footer(props) {
   );
 }
 
+const photos = [
+  "Wedding",
+  "Portrait",
+  "Event"
+];
+
+
+
 function App() {
   return (
     <div className="App">
       <Header name="Kadir" lastName="Ermaya" />
-      <Main adjective="amazing" />
+      <Main adjective="amazing" photo={photos} />
       <Footer year={new Date().getFullYear()} />
     </div>
   );
