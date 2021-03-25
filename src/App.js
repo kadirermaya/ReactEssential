@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
+import picture from './picture.JPG'
 
 function Header(props) {
-  console.log(props);
   return (
     <header>
       <h1>{props.name} {props.lastName} Photography.</h1>
@@ -14,9 +13,10 @@ function Main(props) {
   return (
     <section>
       <p>Get your {props.adjective} pictures with me.</p>
+      <img src={picture} height={500} alt="An amazing view in Boardman-Poland Road" />
       <ul style={{ textAlign: "left" }}>
-        {photos.map((photo) =>
-          <li>{photo}</li>
+        {photoObjects.map(({ title, id }) =>
+          <li key={id}>{title}</li>
         )}
       </ul>
     </section >
@@ -25,7 +25,6 @@ function Main(props) {
 }
 
 function Footer(props) {
-  console.log(props);
   return (
     <footer>
       <p>Copyright {props.year}</p>
@@ -36,16 +35,17 @@ function Footer(props) {
 const photos = [
   "Wedding",
   "Portrait",
-  "Event"
+  "Event",
+  "Graduation"
 ];
 
-
+const photoObjects = photos.map((photo, id) => ({ id: id, title: photo }))
 
 function App() {
   return (
     <div className="App">
       <Header name="Kadir" lastName="Ermaya" />
-      <Main adjective="amazing" photo={photos} />
+      <Main adjective="amazing" photo={photoObjects} />
       <Footer year={new Date().getFullYear()} />
     </div>
   );
