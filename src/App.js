@@ -43,11 +43,11 @@ const photoObjects = photos.map((photo, id) => ({ id: id, title: photo }))
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header name="Kadir" lastName="Ermaya" />
       <Main adjective="amazing" photo={photoObjects} />
       <Footer year={new Date().getFullYear()} />
-    </div>
+    </>
   );
 }
 
