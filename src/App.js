@@ -1,21 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./App.css"
 
-function HiddenComponent() {
-  return <h1>This is hidden component.</h1>
-}
-
-function RegularComponent() {
-  return <h1>This is component can be seen for everyone.</h1>
-}
-
-function App({ authorized }) {
-
+function App() {
+  const [feeling, setEmotion] = useState("happy");
   return (
     <>
-      {authorized ? <HiddenComponent /> : <RegularComponent />}
+      <h1>Current feeling is {feeling}</h1>
+      <button onClick={() => setEmotion("angry")}>Angry</button>
+      <button onClick={() => setEmotion("sad")}>Sad</button>
+      <button onClick={() => setEmotion("happy")}>Happy</button>
     </>
-  )
+  );
 }
 
 export default App;
