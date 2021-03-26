@@ -9,9 +9,10 @@ function App({ login }) {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (!login) return;
     setLoading(true);
+
     fetch(`https://api.github.com/users/${login}`)
       .then((response) => response.json())
       .then(setData)
