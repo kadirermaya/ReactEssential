@@ -6,7 +6,7 @@ import App from './App';
 
 
 ReactDOM.render(
-  <App login="kadirermaya" />,
+  <App login="monofor" />,
   document.getElementById('root'));
 
 
