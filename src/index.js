@@ -4,11 +4,9 @@ import './index.css';
 import App from './App';
 
 
-const [, , tripod] = ["camera", "lights", "tripods"];
-console.log(tripod);
 
 ReactDOM.render(
-  <App authorized={true} />,
+  <App />,
   document.getElementById('root'));
 
 
