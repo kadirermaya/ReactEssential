@@ -6,7 +6,7 @@ import App from './App';
 
 
 ReactDOM.render(
-  <App />,
+  <App login="kadirermaya" />,
   document.getElementById('root'));
 
 
