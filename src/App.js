@@ -5,34 +5,13 @@ import "./App.css"
 //https://api.github.com/users/kadirermaya
 
 function App({ login }) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(null);
-  const [error, setError] = useState(null);
 
-  useEffect(async () => {
-    if (!login) return;
-    setLoading(true);
-
-    fetch(`https://api.github.com/users/${login}`)
-      .then((response) => response.json())
-      .then(setData)
-      .then(() => setLoading(false))
-      .catch(setError);
-  }, [login]);
-
-  if (loading) return <h1>Loading...</h1>
-  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
-  if (!data) return null;
-
-  if (data) {
-    return (
-      <div>
-        <h1>{data.name}</h1>
-        <p>{data.location}</p>
-        <img alt={data.login} src={data.avatar_url} height={100} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>Hello React Testing Library</h1>
+    </div>
+  );
+}
 
 }
 
